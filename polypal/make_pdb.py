@@ -32,7 +32,7 @@ def read_coordinates(xyz_filename):
 def write_pdb(atomlist, coordinates, output_filename):
     with open(output_filename, 'w') as file:
         for (atom_index, atom_name), (atom, x, y, z) in zip(atomlist, coordinates):
-            file.write(f"ATOM  {atom_index:5}  {atom_name:<3} TRI X   1    {x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00           {atom}\n")
+            file.write(f"ATOM  {int(atom_index):5d} {atom_name:>4s} TRI X{1:4d}    {x:8.3f}{y:8.3f}{z:8.3f}{1.00:6.2f}{0.00:6.2f}          {atom:>2s}\n")
 
 def AA_to_ZZ_pdb(pdb_filename, output_pdb_filename, AA_input, ZZ_input):
     AA_name = []
